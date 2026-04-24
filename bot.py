@@ -92,7 +92,7 @@ async def ask_claude(user_message, image_base64=None):
     t = get_today_diary()["totals"]
     context = f"\n\nСЕГОДНЯ ({get_today()}): съедено {t['kcal']:.0f} ккал | Б{t['protein']:.0f}г | Ж{t['fat']:.0f}г | У{t['carbs']:.0f}г. Осталось: {get_remaining()['kcal']:.0f} ккал"
     response = client.messages.create(
-        claude-haiku-4-5-20251001,
+      model="claude-haiku-4-5-20251001",
         max_tokens=1024,
         system=DAVID_PROFILE + context,
         messages=conversation_history
